@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <li>所有音乐家</li>
+  <ul>
+  {% for Musician in Musicianlist %}
+  <ul>
+    <li>no.:{{Musician.no}}</li>
+    <li>原名:{{Musician.name}}</li>
+    {% if Musician.stagename %}
+      <li>艺名:{{Musician.stagename}}</li>
+    {% else %}
+      <li>该艺人没有艺名</li>
+    {% endif %}
+    <li>性别:{{Musician.sex}}</li>
+    <li>出生日期:{{Musician.birthday.date|date:"Y-m-d"}}</li>
+  </ul>
+  <br>
+  {% endfor %}
+  </ul>
+
+  <li>所有唱片公司</li>
+  <ul>
+  {% for RecordCompany in RecordCompanylist %}
+  <ul>
+    <li>no.:{{RecordCompany.no}}</li>
+    <li>公司名:{{RecordCompany.company}}</li>
+  </ul>
+  <br>
+  {% endfor %}
+  </ul>
+
+  <li>所有专辑</li>
+  <ul>
+  {% for Album in Albumlist %}
+  <ul>
+    <li>no.:{{Album.no}}</li>
+    <li>名称:{{Album.name}}</li>
+    <li>发行公司:</li>
+    <ul>
+      <li>no.:{{Album.company.no}}</li>
+      <li>公司名:{{Album.company.company}}</li>
+    </ul>
+    <li>发行日期:{{Album.date|date:"Y-m-d"}}</li>
+  </ul>
+  <br>
+  {% endfor %}
+  </ul>
+
+
+  <li>所有音乐</li>
+  <ul>
+  {% for Music in Musiclist %}
+  <ul>
+    <li>no.:{{Music.no}}</li>
+    <li>音乐名:{{Music.name}}</li>
+    <li>作词:</li>
+    <ul>
+      <li>no.:{{Music.lyricist.no}}</li>
+      <li>原名:{{Music.lyricist.name}}</li>
+      <li>艺名:{{Music.lyricist.stagename}}</li>
+      <li>性别:{{Music.lyricist.sex}}</li>
+      <li>出生日期:{{Music.lyricist.birthday.date|date:"Y-m-d"}}</li>
+    </ul>
+    <li>作曲:</li>
+    <ul>
+      <li>no.:{{Music.composer.no}}</li>
+      <li>原名:{{Music.composer.name}}</li>
+      <li>艺名:{{Music.composer.stagename}}</li>
+      <li>性别:{{Music.composer.sex}}</li>
+      <li>出生日期:{{Music.composer.birthday.date|date:"Y-m-d"}}</li>
+    </ul>
+    <li>演唱者:</li>
+    <ul>
+      <li>no.:{{Music.singer.no}}</li>
+      <li>原名:{{Music.singer.name}}</li>
+      <li>艺名:{{Music.singer.stagename}}</li>
+      <li>性别:{{Music.singer.sex}}</li>
+      <li>出生日期:{{Music.singer.birthday.date|date:"Y-m-d"}}</li>
+    </ul>
+    <li>专辑:</li>
+    <ul>
+      <li>no.:{{Music.album.no}}</li>
+      <li>名称:{{Music.album.name}}</li>
+      <li>发行公司:{{Music.album.company}}</li>
+      <li>发行日期:{{Music.album.date|date:"Y-m-d"}}</li>
+    </ul>
+    <li>长度:{{Music.duration}}</li>
+  </ul>
+  <br>
+  {% endfor %}
+  </ul>
+</body>
+</html>
